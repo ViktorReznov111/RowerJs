@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<script>
+		
+		var maxX=5,maxY=5;
+		
+		
+
+		var Rower = function (x, y, yon) {
+			this.fallen=false;
+			this.x = x;
+			this.y = y;
+			this.yon = yon;
+			
+
+		}
+
+		function YonToText(yon){
+			if(yon==1){return "North";}
+
+			if(yon==2){return "East";}
+			if(yon==3){return "South";}
+			if(yon==4){return "West";}
+
+		}
+		Rower.prototype.Turn =function (leftorright){
+			if(leftorright=="left"){
+				if(this.yon==1){this.yon= 4;return;}
+				this.yon--; 
+				return;
+
+			}
+			if(leftorright=="right"){
+				if(this.yon==4){this.yon= 1;return;}
+				this.yon++ 
+				return;
+
+			}}
+
+			Rower.prototype.Move=function Move(){ if(!this.fallen){
+				switch(this.yon){
+					case 1: this.y++; 
+					if(this.y>maxY){console.log("Rower Düştü!!! Son koordinatlar:");this.y--; this.fallen=true;}
+					break;
+					case 2: this.x++;
+					if(this.x>maxX){console.log("Rower Düştü!!! Son koordinatlar:");this.x--; this.fallen=true;}
+					break;
+					case 3: this.y--; 
+					if(this.y<1 ){console.log("Rower Düştü!!! Son koordinatlar:");this.y++; this.fallen=true;}
+					break;
+					case 4: this.x--; 
+					if(this.x<1 ){console.log("Rower Düştü!!! Son koordinatlar:"); this.x++; this.fallen=true;}
+					break;
+					default: break;
+
+
+				}
+
+				console.log("X:"+this.x + " "+"Y:"+ this.y);
+			}
+
+
+
+			
+			
+
+
+
+
+		}
+
+
+
+
+
+
+		var rower1=new Rower(2,2,1)
+		console.log("X:"+rower1.x + " "+"Y:"+ rower1.y);
+		console.log(YonToText(rower1.yon));
+		rower1.Turn("left"); console.log(YonToText(rower1.yon));
+		rower1.Turn("right");console.log(YonToText(rower1.yon));
+		rower1.Turn("left");console.log(YonToText(rower1.yon));
+		rower1.Turn("left");console.log(YonToText(rower1.yon));
+		rower1.Turn("left");console.log(YonToText(rower1.yon));
+		rower1.Move(); 
+		rower1.Turn("left");console.log(YonToText(rower1.yon));
+		rower1.Move();
+		rower1.Move(); 
+		rower1.Move();
+		rower1.Move(); 
+		rower1.Move(); 
+		rower1.Move();
+		rower1.Move(); 
+		rower1.Move(); 
+
+
+
+
+
+
+
+	</script>
+
+</head>
+
+<body>
+
+
+
+
+</body>
+</html>
