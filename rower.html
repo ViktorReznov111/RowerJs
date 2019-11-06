@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<script>
+		var yon=1;
+		var maxX=5,maxY=5;
+		var x=2,y=2;
+		var fallen=false;
+		///sol alt 0 a 0;
+		function Turn(leftorright){
+			if(leftorright=="left"){
+				if(yon==1){yon= 4;return;}
+				--yon; 
+				return;
+
+			}
+			if(leftorright=="right"){
+				if(yon==4){yon= 1;return;}
+				++yon; 
+				return;
+
+			}}
+
+			function Move(){ if(!fallen){
+				switch(yon){
+					case 1: ++y; 
+					if(y>maxY){console.log("Rower Düştü!!! Son koordinatlar:"); fallen=true;}
+					break;
+					case 2: ++x;
+					if(x>maxX){console.log("Rower Düştü!!! Son koordinatlar:"); fallen=true;}
+					break;
+					case 3: --y; 
+					if(y<1 ){console.log("Rower Düştü!!! Son koordinatlar:"); fallen=true;}
+					break;
+					case 4: --x; 
+					if(x<1 ){console.log("Rower Düştü!!! Son koordinatlar:"); fallen=true;}
+					break;
+					default: break;
+
+
+				}
+				console.log("X:"+x + " "+"Y:"+ y);
+			}
+
+
+		}
+		function YonToText(){
+			if(yon==1){return "North";}
+
+			if(yon==2){return "East";}
+			if(yon==3){return "South";}
+			if(yon==4){return "West";}
+
+		}	
+
+		Turn("left"); console.log(YonToText());
+		Turn("right");console.log(YonToText());
+		Turn("left");console.log(YonToText());
+		Turn("left");console.log(YonToText());
+		Turn("left");console.log(YonToText());
+		Move(); 
+		Turn("left");console.log(YonToText());
+		Move();
+		Move(); 
+		Move();
+		Move(); 
+		Move(); 
+		Move();
+		Move(); 
+		Move(); 
+
+
+
+
+
+
+
+	</script>
+
+</head>
+
+<body>
+
+
+
+
+</body>
+</html>
